@@ -1,16 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: AppProject
 metadata:
   name: root-appbundle-app-yorkhaus-infra
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  destination:
-    namespace: default
-    name: in-cluster
+  destinations:
+    - namspace: "*"
+      server: "*"
+
   project: appbundle-project-yorkhaus-infra
-  source:
-    path: argocd/apps/yorkhaus-infra
-    repoURL: https://github.com/dsyorkd/york-haus-cluster
-    targetRevision: HEAD
+  sourceRepos:
+    - "*"
