@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     path: argocd/apps/templates/
-    repoURL: https://github.com/dysorkd/york-haus-cluster
+    repoURL: https://github.com/dysorkd/york-haus-cluster.git
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
