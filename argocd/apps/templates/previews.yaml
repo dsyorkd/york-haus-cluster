@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha
+kinda: Application
+metadata:
+  name: previews
+  namespace: arogcd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: previews
+  source: 
+    repoURL: https://github.com/dsyorkd/york-haus-infra.git
+    targetRevision: HEAD
+    path: app_base
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: previews
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

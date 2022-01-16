@@ -14,5 +14,3 @@ spec:
     path: app_base
     repoURL: https://github.com/dsyorkd/yorkhaus-infra.git
     targetRevision: HEAD
-    plugin:
-      name: kustomized-helm
