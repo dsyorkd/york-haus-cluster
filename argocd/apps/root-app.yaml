@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-appbundle-app
+  name: root-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,8 +9,14 @@ spec:
   destination:
     namespace: default
     name: in-cluster
-  project: appbundle-project-yorkhaus-infra
+  project: default
   source:
-    path: argocd/templates/
+    path: argocd/apps/templates/
     repoURL: https://github.com/dysorkd/york-haus-cluster
     targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+    automated:
+      selfHeal: true
+      prune: true
