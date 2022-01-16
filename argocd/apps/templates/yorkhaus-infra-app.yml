@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: yorkhaus-infra-app
     name: in-cluster
-  project: appbundle-project-yorkhaus-infra
+  project: default
   source:
     path: app_base
     repoURL: https://github.com/dsyorkd/yorkhaus-infra.git
