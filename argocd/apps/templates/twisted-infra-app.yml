@@ -7,7 +7,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: twisted-infra-app
+    namespace: default
     name: in-cluster
   project: twisted-infra-app
   source:
