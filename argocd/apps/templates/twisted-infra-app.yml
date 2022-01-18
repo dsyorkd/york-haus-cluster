@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: yorkhaus-infra-app
+  name: twisted-infra-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: yorkhaus-infra-app
+    namespace: twisted-infra-app
     name: in-cluster
   project: default
   source:

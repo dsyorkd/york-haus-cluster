@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: infra-project
+  name: twisted-infra-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -18,8 +18,9 @@ spec:
       server: https://kubernetes.default.svc
     - namespace: observability
       server: https://kubernetes.default.svc
-    - namespace: ceph-rbd-csi
-      server: https://kuberenetes.default.svc
+    - namespace: storage
+      server: https://kubernetes.default.svc
+
   clusterResourceWhitelist:
     - group: ""
       kind: Namespace
