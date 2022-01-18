@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: twisted-infra-app
     name: in-cluster
-  project: default
+  project: twisted-infra-app
   source:
     path: app_base/
     repoURL: https://github.com/dsyorkd/yorkhaus-infra.git
