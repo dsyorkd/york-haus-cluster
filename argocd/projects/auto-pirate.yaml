@@ -1,0 +1,19 @@
+kind: AppProject
+metadata:
+  name: autopirate-project
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: infra
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: autopirate
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"

@@ -11,6 +11,6 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: app_base
+    path: app_base/
     repoURL: https://github.com/dsyorkd/yorkhaus-infra.git
     targetRevision: HEAD
