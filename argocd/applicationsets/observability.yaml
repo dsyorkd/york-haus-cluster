@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: observability
+  namespace: observability
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/dsyorkd/yorkhaus-infra
+        revision: master
+        directories:
+          - path: app_base/observability/*
+  template:
+    metadata:
+      name: "{{path.basename}}"
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: https://github.com/dsyorkd/yorkhaus-infra
+        targetRevision: master
+        path: "{{path}}"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: observability
