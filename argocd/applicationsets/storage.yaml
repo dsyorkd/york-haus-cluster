@@ -2,14 +2,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: storage
-  namespace: storage
+  namespace: argocd
 spec:
   generators:
     - git:
         repoURL: https://github.com/dsyorkd/yorkhaus-infra
         revision: HEAD
         directories:
-          - path: app_base/observability/*
+          - path: app_base/storage/*
   template:
     metadata:
       name: "{{path.basename}}"
