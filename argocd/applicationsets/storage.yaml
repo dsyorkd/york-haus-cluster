@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: observability
-  namespace: observability
+  name: storage
+  namespace: storage
 spec:
   generators:
     - git:
@@ -25,4 +25,4 @@ spec:
         path: "{{path}}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: observability
+        namespace: storage
