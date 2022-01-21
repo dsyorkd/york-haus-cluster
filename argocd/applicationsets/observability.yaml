@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/dsyorkd/yorkhaus-infra
+        repoURL: https://github.com/dsyorkd/yorkhaus-infra.git
         revision: HEAD
         directories:
           - path: app_base/observability/*
@@ -14,9 +14,6 @@ spec:
     metadata:
       name: "{{path.basename}}"
     spec:
-      helm:
-        valuesFiles:
-          - values.yaml
       project: default
       syncPolicy:
         automated:
@@ -26,6 +23,9 @@ spec:
         repoURL: https://github.com/dsyorkd/yorkhaus-infra.git
         targetRevision: HEAD
         path: "{{path}}"
+        helm:
+          valueFiles:
+            - values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: observability
